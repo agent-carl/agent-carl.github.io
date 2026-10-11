@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ivan, web developer in Oslo: landing pages, speed optimization, Python automation</title>
+  <meta name="description" content="I build fast landing pages for small businesses, fix slow websites and write Python scripts that automate Excel and CSV work. Fixed prices, written communication, tested before delivery.">
+  <link rel="canonical" href="https://agent-carl.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ivan, web developer in Oslo">
+  <meta property="og:description" content="Fast landing pages, website speed fixes and Python automation for small businesses.">
+  <meta property="og:url" content="https://agent-carl.github.io/">
+  <meta name="theme-color" content="#f7f7f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121314" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ivan",
+    "jobTitle": "Web developer",
+    "url": "https://agent-carl.github.io/",
+    "address": { "@type": "PostalAddress", "addressLocality": "Oslo", "addressCountry": "NO" },
+    "knowsAbout": ["HTML", "CSS", "JavaScript", "Website performance", "Technical SEO", "Python", "pandas", "PHP", "SQLite"],
+    "sameAs": ["https://github.com/agent-carl"]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --surface: #ffffff;
+      --text: #17181a;
+      --muted: #5a5e66;
+      --line: #e3e3dd;
+      --accent: #2747a8;
+      --accent-soft: #e8edfb;
+      --ok: #1d7a46;
+      --max: 1080px;
+      --radius: 16px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121314;
+        --surface: #1a1c1e;
+        --text: #ececea;
+        --muted: #a3a7ad;
+        --line: #2b2e31;
+        --accent: #8fa8f5;
+        --accent-soft: #1d2335;
+        --ok: #5fcf8f;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 400 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    h1, h2, h3 { line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 0.5em; }
+    h1 { font-size: clamp(2.3rem, 5.4vw, 3.9rem); font-weight: 750; }
+    h2 { font-size: clamp(1.7rem, 3.2vw, 2.3rem); font-weight: 700; }
+    h3 { font-size: 1.2rem; font-weight: 650; }
+    p { margin: 0 0 1em; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 16px; top: 12px; z-index: 10; background: var(--surface); padding: 8px 12px; border-radius: 8px; }
+
+    header.site {
+      position: sticky; top: 0; z-index: 5;
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .bar { display: flex; align-items: center; gap: 24px; min-height: 62px; }
+    .name { font-weight: 750; font-size: 1.15rem; text-decoration: none; }
+    .nav { display: flex; gap: 22px; margin-left: auto; font-size: 0.95rem; }
+    .nav a { text-decoration: none; color: var(--muted); }
+    .nav a:hover { color: var(--text); }
+    @media (max-width: 680px) { .nav a:not(:last-child) { display: none; } }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      min-height: 46px; padding: 0 20px; border-radius: 999px;
+      font-weight: 650; text-decoration: none;
+      border: 1.5px solid var(--text);
+      transition: transform 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-solid { background: var(--text); color: var(--bg); }
+    .btn svg { width: 18px; height: 18px; }
+
+    .hero { padding: 72px 0 56px; }
+    .eyebrow { display: inline-block; font-size: 0.85rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+    .lead { font-size: 1.22rem; color: var(--muted); max-width: 40em; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 40px; }
+    .proof {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px;
+      background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+    }
+    .proof div { background: var(--surface); padding: 18px 20px; }
+    .proof strong { display: block; font-size: 1.6rem; line-height: 1.2; }
+    .proof span { color: var(--muted); font-size: 0.9rem; }
+
+    section { padding: 64px 0; }
+    .head { max-width: 42em; margin-bottom: 32px; }
+    .head p { color: var(--muted); }
+
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; }
+    .card p { color: var(--muted); }
+    .ticks { list-style: none; padding: 0; margin: auto 0 0; display: grid; gap: 8px; font-size: 0.95rem; }
+    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+    .ticks svg { width: 18px; height: 18px; color: var(--ok); flex: none; margin-top: 4px; }
+
+    .work { display: grid; gap: 18px; }
+    .project {
+      display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px;
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+    }
+    @media (max-width: 820px) { .project { grid-template-columns: 1fr; } }
+    .tag { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; margin-bottom: 12px; }
+    .tag-live { background: color-mix(in srgb, var(--ok) 16%, transparent); color: var(--ok); }
+    .tag-demo { background: var(--accent-soft); color: var(--accent); }
+    .project p { color: var(--muted); }
+    .stack { font-size: 0.9rem; color: var(--muted); margin: 0; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; font-weight: 650; }
+    .links a { text-decoration: none; border-bottom: 1.5px solid var(--accent); }
+    .metrics { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }
+    .metrics li { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+    .metrics strong { display: block; font-size: 1.35rem; line-height: 1.2; }
+    .metrics span { font-size: 0.85rem; color: var(--muted); }
+    .metrics-note { grid-column: 1 / -1; font-size: 0.8rem; color: var(--muted); margin: 2px 0 0; }
+
+    .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px 32px; }
+    .principles h3 { font-size: 1.05rem; }
+    .principles p { color: var(--muted); margin: 0; }
+
+    .steps { counter-reset: step; list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+    .steps li { counter-increment: step; border-top: 2px solid var(--text); padding-top: 14px; }
+    .steps li::before { content: counter(step, decimal-leading-zero); display: block; font-weight: 750; color: var(--accent); margin-bottom: 6px; }
+    .steps strong { display: block; }
+    .steps span { color: var(--muted); font-size: 0.95rem; }
+
+    .contact { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .contact .actions { margin-bottom: 0; }
+
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site">
+    <div class="wrap bar">
+      <a class="name" href="./">Ivan</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#how">How I work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Web developer in Oslo, Norway</span>
+        <h1>Fast websites, speed fixes and Python automation.</h1>
+        <p class="lead">I build lightweight landing pages for small businesses, make slow websites fast, and write Python scripts that take repetitive spreadsheet work off your plate. Fixed prices, clear written communication, everything tested before delivery.</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="#work">See my work</a>
+          <a class="btn" href="#contact">How to hire me</a>
+        </div>
+        <div class="proof">
+          <div><strong>100</strong><span>mobile PageSpeed score of chesscodex.org, my live project</span></div>
+          <div><strong>3,690</strong><span>pages generated from one database on that site</span></div>
+          <div><strong>66 → 97</strong><span>mobile PageSpeed in my before/after speed demo</span></div>
+          <div><strong>28</strong><span>automated tests in the Python demo</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="head">
+          <h2>What I can do for you</h2>
+          <p>Three services I deliver well and quickly. If your task is outside them, I will tell you honestly instead of guessing.</p>
+        </div>
+        <div class="services">
+          <article class="card">
+            <h3>Landing pages and small business websites</h3>
+            <p>One to five pages, built mobile-first and fast by default. I set up free hosting on Cloudflare Pages or Netlify, or deploy to the host you already have.</p>
+            <ul class="ticks">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Responsive design from your content or a Figma file</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Contact or booking form</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>SEO basics and structured data</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Hosting setup and a short handover guide</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Website speed and technical SEO</h3>
+            <p>A clear audit of what slows your site down and what to fix first, or the fixes themselves for static and custom-built sites. Measured before and after.</p>
+            <ul class="ticks">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>PageSpeed and Core Web Vitals audit</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Fix list ordered by impact, in plain language</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Image, font and script optimization</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Titles, meta tags, sitemap, structured data</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Python automation for Excel and CSV</h3>
+            <p>Scripts that merge, clean and summarize your exports, or move data between tools. They run on your own computer, so there is no server to pay for.</p>
+            <ul class="ticks">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Combine and clean messy spreadsheets</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Formatted Excel reports with charts</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>File format conversion and simple API integrations</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Clear instructions on how to run it</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="head">
+          <h2>Work</h2>
+          <p>One live project and three demos. Demos are labelled as such: the businesses are fictional and the data is synthetic, but the code, the pages and the measurements are real.</p>
+        </div>
+        <div class="work">
+          <article class="project">
+            <div>
+              <span class="tag tag-live">Live project</span>
+              <h3>chesscodex.org</h3>
+              <p>A free reference of the 3,690 named chess opening lines with statistics from Lichess. Server-rendered PHP with a SQLite database: every opening has its own page, structured data and a place in the sitemap. Self-hosted on a Raspberry Pi 5 behind Cloudflare Tunnel.</p>
+              <p class="stack">PHP 8.4, SQLite, HTML, CSS, JavaScript, Cloudflare</p>
+              <div class="links">
+                <a href="https://chesscodex.org/">Visit the site</a>
+                <a href="https://github.com/agent-carl/chesscodex">Source code</a>
+                <a href="https://pagespeed.web.dev/analysis/https-chesscodex-org/2sppug5e8q?form_factor=mobile">PageSpeed report</a>
+              </div>
+            </div>
+            <ul class="metrics">
+              <li><strong>100</strong><span>Performance, mobile</span></li>
+              <li><strong>100</strong><span>SEO</span></li>
+              <li><strong>1.5 s</strong><span>Largest Contentful Paint</span></li>
+              <li><strong>100</strong><span>Accessibility</span></li>
+              <li class="metrics-note">Google PageSpeed Insights, measured 11 October 2026</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <div>
+              <span class="tag tag-demo">Demo, fictional business</span>
+              <h3>Tråkk Sykkelverksted</h3>
+              <p>A one-page website for a made-up bike workshop in Oslo, in Norwegian and English. Services, prices, opening hours, FAQ and a booking form with validation. No frameworks, no web fonts, no image downloads: it loads fast even on a weak mobile connection.</p>
+              <p class="stack">HTML, CSS, a little JavaScript, schema.org structured data</p>
+              <div class="links">
+                <a href="https://agent-carl.github.io/oslo-bike-shop-demo/">Live demo</a>
+                <a href="https://github.com/agent-carl/oslo-bike-shop-demo">Source code</a>
+              </div>
+            </div>
+            <ul class="metrics">
+              <li><strong>100</strong><span>Performance, mobile</span></li>
+              <li><strong>100</strong><span>Accessibility</span></li>
+              <li><strong>100</strong><span>Best practices</span></li>
+              <li><strong>0.8 s</strong><span>Largest Contentful Paint</span></li>
+              <li class="metrics-note">Search engines are asked not to index this demo, because the business does not exist.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <div>
+              <span class="tag tag-demo">Demo, speed optimization</span>
+              <h3>The same page, before and after</h3>
+              <p>A landing page for a fictional coffee roaster, built the way many small business sites are: full-size photos, a CSS framework and an icon font for three icons, render-blocking fonts and scripts. Then the same page, optimized, looking exactly the same. Includes a sample audit report, the kind of document you get with my audit service.</p>
+              <p class="stack">Image resizing and AVIF/WebP, responsive images, font loading, critical CSS</p>
+              <div class="links">
+                <a href="https://agent-carl.github.io/page-speed-demo/">Case study</a>
+                <a href="https://agent-carl.github.io/page-speed-demo/report/">Sample audit report</a>
+                <a href="https://github.com/agent-carl/page-speed-demo">Source code</a>
+              </div>
+            </div>
+            <ul class="metrics">
+              <li><strong>66 → 97</strong><span>Performance, mobile</span></li>
+              <li><strong>26.6 s → 2.4 s</strong><span>Largest Contentful Paint</span></li>
+              <li><strong>4.8 MB → 34 KB</strong><span>Page weight</span></li>
+              <li><strong>6 → 0</strong><span>Render-blocking files</span></li>
+              <li class="metrics-note">Google PageSpeed Insights, measured 11 October 2026</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <div>
+              <span class="tag tag-demo">Demo, synthetic data</span>
+              <h3>Excel report automation</h3>
+              <p>Three monthly exports in three formats (a webshop CSV, a Norwegian accounting CSV with <code>1 234,50</code> prices, and an Excel file) become one formatted report: summary with a chart, breakdowns by product, city and channel, and an Issues sheet that lists every row that could not be used and why.</p>
+              <p class="stack">Python, pandas, openpyxl, pytest</p>
+              <div class="links">
+                <a href="https://github.com/agent-carl/excel-report-automation">Source code and example report</a>
+              </div>
+            </div>
+            <ul class="metrics">
+              <li><strong>446</strong><span>rows read from 3 files</span></li>
+              <li><strong>29</strong><span>problem rows found and explained</span></li>
+              <li><strong>6</strong><span>sheets in the finished report</span></li>
+              <li><strong>28</strong><span>automated tests</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="head">
+          <h2>How I work</h2>
+        </div>
+        <div class="principles">
+          <div>
+            <h3>In writing</h3>
+            <p>Scope, price, deadline and changes are agreed in messages on the platform. Nothing gets lost, and you can reply when it suits you.</p>
+          </div>
+          <div>
+            <h3>Fixed price, agreed upfront</h3>
+            <p>You know the price and the delivery date before I start. The number of revision rounds is agreed in advance too.</p>
+          </div>
+          <div>
+            <h3>Tested before delivery</h3>
+            <p>Every delivery goes through a checklist: phone and desktop, several browsers, speed, links, forms and accessibility basics.</p>
+          </div>
+          <div>
+            <h3>Open about tools</h3>
+            <p>I use modern development tools, including AI coding assistants. Every delivery is reviewed and tested before it reaches you.</p>
+          </div>
+          <div>
+            <h3>You own the result</h3>
+            <p>Source code and files are yours, and hosting is set up in your name, so you never depend on me to keep your site online.</p>
+          </div>
+          <div>
+            <h3>Small and clear scope</h3>
+            <p>I prefer well-defined tasks I can finish properly. If something is outside what I do well, I say so before you pay.</p>
+          </div>
+        </div>
+        <ol class="steps">
+          <li><strong>You describe the task</strong><span>A few sentences, links or files are enough.</span></li>
+          <li><strong>I confirm scope and price</strong><span>With questions if anything is unclear.</span></li>
+          <li><strong>I build and test</strong><span>You get progress updates in writing.</span></li>
+          <li><strong>You review</strong><span>Revisions as agreed.</span></li>
+          <li><strong>Handover</strong><span>Files, access and a short guide.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="wrap">
+        <div class="head">
+          <h2>How to hire me</h2>
+          <p>I take projects through freelance platforms, so payment is protected for both of us. Send a short description of your task there, and I will reply with questions or a fixed-price offer.</p>
+        </div>
+        <div class="actions">
+          <!-- PLATFORM_LINKS: Upwork and Fiverr profile buttons go here once the profiles are live. -->
+          <a class="btn" href="https://github.com/agent-carl">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Code on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Ivan, Oslo, Norway. Demo projects use fictional businesses and synthetic data and are labelled as demos.</p>
+    </div>
+  </footer>
+</body>
+</html>
